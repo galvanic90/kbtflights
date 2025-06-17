@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  MYSQL_DATABASE: '${SPRING_DATASOURCE_DB}'
+  MYSQL_ROOT_PASSWORD: '${SPRING_DATASOURCE_PASSWORD}'
