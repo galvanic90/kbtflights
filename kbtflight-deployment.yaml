@@ -23,9 +23,9 @@ spec:
               protocol: TCP
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "${SPRING_DATASOURCE_URL}"
+              value: "jdbc:mysql://mysql:3306/kubernetesFL"
             - name: SPRING_DATASOURCE_USERNAME
-              value: "${SPRING_DATASOURCE_USERNAME}"
+              value: admin_k
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 configMapKeyRef:

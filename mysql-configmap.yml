@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: mysql-config
 data:
-  MYSQL_DATABASE: '${SPRING_DATASOURCE_DB}'
-  MYSQL_ROOT_PASSWORD: '${SPRING_DATASOURCE_PASSWORD}'
+  MYSQL_DATABASE: 'kubernetesFL'
+  MYSQL_ROOT_PASSWORD: 'admin_pass'
