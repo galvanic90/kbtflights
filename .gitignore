@@ -6,6 +6,8 @@ target/
 
 *.jar
 
+.env
+mysql-secret.yaml
 ### STS ###
 .apt_generated
 .classpath

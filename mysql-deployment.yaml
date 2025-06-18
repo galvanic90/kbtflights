@@ -11,19 +11,25 @@ spec:
       app: mysql
   template:
     metadata:
-      name: mysql
       labels:
         app: mysql
     spec:
       containers:
         - name: mysql
           image: mysql:5.7
-          envFrom:
-            - configMapRef:
-                name: mysql-config
+          env:
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: MYSQL_DATABASE
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
           ports:
             - containerPort: 3306
-              protocol: TCP
 ---
 apiVersion: v1
 kind: Service

@@ -16,11 +16,10 @@ spec:
     spec:
       containers:
         - name: kbtflight-app
-          image: kbtflights-app:latest
+          image: kbtflight-app:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8081
-              protocol: TCP
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql:3306/kubernetesFL"
@@ -28,8 +27,8 @@ spec:
               value: admin_k
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  name: mysql-config
+                secretKeyRef:
+                  name: mysql-secret
                   key: MYSQL_ROOT_PASSWORD
 ---
 apiVersion: v1

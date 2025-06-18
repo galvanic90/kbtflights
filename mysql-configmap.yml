@@ -4,4 +4,3 @@ metadata:
   name: mysql-config
 data:
   MYSQL_DATABASE: 'kubernetesFL'
-  MYSQL_ROOT_PASSWORD: 'admin_pass'
