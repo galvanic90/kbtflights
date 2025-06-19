@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kbtflight
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: kbtflight
@@ -19,12 +19,12 @@ spec:
           image: kbtflight-app:latest
           imagePullPolicy: Never
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql:3306/kubernetesFL"
             - name: SPRING_DATASOURCE_USERNAME
-              value: admin_k
+              value: root
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -38,7 +38,7 @@ metadata:
 spec:
   ports:
     - port: 8081
-      targetPort: 8081
+      targetPort: 8080
   selector:
     app: kbtflight
   type: LoadBalancer
